@@ -1,12 +1,15 @@
 # Android
 .gradle/
+**/.gradle/
 **/build/
 local.properties
 *.apk
 *.aab
 captures/
+.idea/
+**/.idea/
 
-# Windows / Visual Studio / .NET
+# Windows / .NET / Visual Studio
 bin/
 obj/
 .vs/
