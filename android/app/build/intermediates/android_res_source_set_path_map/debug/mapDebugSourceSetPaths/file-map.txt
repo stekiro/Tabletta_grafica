@@ -1,0 +1,8 @@
+com.drawtablet.app-pngs-0 C:\Users\steki\Desktop\DrawTablet\DrawTablet\android\app\build\generated\res\pngs\debug
+com.drawtablet.app-resValues-1 C:\Users\steki\Desktop\DrawTablet\DrawTablet\android\app\build\generated\res\resValues\debug
+com.drawtablet.app-updated_navigation_xml-2 C:\Users\steki\Desktop\DrawTablet\DrawTablet\android\app\build\generated\updated_navigation_xml\debug
+com.drawtablet.app-packageDebugResources-3 C:\Users\steki\Desktop\DrawTablet\DrawTablet\android\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.drawtablet.app-packageDebugResources-4 C:\Users\steki\Desktop\DrawTablet\DrawTablet\android\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.drawtablet.app-debug-5 C:\Users\steki\Desktop\DrawTablet\DrawTablet\android\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.drawtablet.app-debug-6 C:\Users\steki\Desktop\DrawTablet\DrawTablet\android\app\src\debug\res
+com.drawtablet.app-main-7 C:\Users\steki\Desktop\DrawTablet\DrawTablet\android\app\src\main\res

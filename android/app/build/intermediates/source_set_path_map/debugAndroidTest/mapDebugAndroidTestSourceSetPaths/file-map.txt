@@ -1,0 +1,5 @@
+com.drawtablet.test.app-androidTest-0 C:\Users\steki\Desktop\DrawTablet\DrawTablet\android\app\build\generated\res\resValues\androidTest\debug
+com.drawtablet.test.app-updated_navigation_xml-1 C:\Users\steki\Desktop\DrawTablet\DrawTablet\android\app\build\generated\updated_navigation_xml\debugAndroidTest
+com.drawtablet.test.app-mergeDebugAndroidTestResources-2 C:\Users\steki\Desktop\DrawTablet\DrawTablet\android\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\merged.dir
+com.drawtablet.test.app-mergeDebugAndroidTestResources-3 C:\Users\steki\Desktop\DrawTablet\DrawTablet\android\app\build\intermediates\incremental\debugAndroidTest\mergeDebugAndroidTestResources\stripped.dir
+com.drawtablet.test.app-debugAndroidTest-4 C:\Users\steki\Desktop\DrawTablet\DrawTablet\android\app\build\intermediates\merged_res\debugAndroidTest\mergeDebugAndroidTestResources

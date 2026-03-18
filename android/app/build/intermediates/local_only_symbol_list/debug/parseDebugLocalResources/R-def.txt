@@ -1,0 +1,29 @@
+R_DEF: Internal format may change without notice
+local
+drawable edittext_bg
+drawable ic_brush
+drawable ic_clear
+drawable ic_eraser
+drawable ic_fill
+drawable ic_launcher
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+drawable ic_palette
+drawable ic_pencil
+drawable ic_save
+drawable tool_selected_bg
+id btnBrush
+id btnClear
+id btnColor
+id btnConnect
+id btnEraser
+id btnFill
+id btnPencil
+id btnSave
+id drawingView
+id etIpAddress
+id seekStroke
+id tvStatus
+layout activity_main
+string app_name
+style Theme.DrawTablet

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <!-- Connection bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#263238"
+        android:padding="8dp"
+        android:gravity="center_vertical">
+
+        <EditText
+            android:id="@+id/etIpAddress"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:hint="IP del PC (es. 192.168.1.100)"
+            android:textColorHint="#90A4AE"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/edittext_bg"
+            android:inputType="text"
+            android:padding="8dp"
+            android:textSize="14sp"/>
+
+        <Button
+            android:id="@+id/btnConnect"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:text="Connetti"
+            android:backgroundTint="#1E88E5"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="8dp"
+            android:paddingHorizontal="16dp"/>
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="❌ Disconnesso"
+            android:textColor="#EF5350"
+            android:textSize="12sp"
+            android:layout_marginStart="8dp"/>
+    </LinearLayout>
+
+    <!-- Toolbar -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#37474F">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="6dp"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:id="@+id/btnPencil"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_pencil"
+                android:contentDescription="Matita"
+                android:background="@drawable/tool_selected_bg"
+                android:tint="#FFFFFF"
+                android:padding="8dp"/>
+
+            <ImageButton
+                android:id="@+id/btnBrush"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_brush"
+                android:contentDescription="Pennello"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="#FFFFFF"
+                android:padding="8dp"
+                android:layout_marginStart="4dp"/>
+
+            <ImageButton
+                android:id="@+id/btnEraser"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_eraser"
+                android:contentDescription="Gomma"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="#FFFFFF"
+                android:padding="8dp"
+                android:layout_marginStart="4dp"/>
+
+            <ImageButton
+                android:id="@+id/btnFill"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_fill"
+                android:contentDescription="Riempimento"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="#FFFFFF"
+                android:padding="8dp"
+                android:layout_marginStart="4dp"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="32dp"
+                android:background="#546E7A"
+                android:layout_marginHorizontal="8dp"/>
+
+            <ImageButton
+                android:id="@+id/btnColor"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_palette"
+                android:contentDescription="Colore"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="#FFFFFF"
+                android:padding="8dp"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="32dp"
+                android:background="#546E7A"
+                android:layout_marginHorizontal="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Spessore"
+                android:textColor="#B0BEC5"
+                android:textSize="11sp"/>
+
+            <SeekBar
+                android:id="@+id/seekStroke"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:max="48"
+                android:layout_marginStart="8dp"/>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="32dp"
+                android:background="#546E7A"
+                android:layout_marginHorizontal="8dp"/>
+
+            <ImageButton
+                android:id="@+id/btnClear"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_clear"
+                android:contentDescription="Pulisci tutto"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="#EF5350"
+                android:padding="8dp"/>
+
+            <ImageButton
+                android:id="@+id/btnSave"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/ic_save"
+                android:contentDescription="Salva"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:tint="#66BB6A"
+                android:padding="8dp"
+                android:layout_marginStart="4dp"/>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Canvas -->
+    <com.drawtablet.DrawingView
+        android:id="@+id/drawingView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#FFFFFF"/>
+
+</LinearLayout>

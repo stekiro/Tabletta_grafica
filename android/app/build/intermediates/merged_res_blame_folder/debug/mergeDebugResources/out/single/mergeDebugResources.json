@@ -1,0 +1,54 @@
+[
+    {
+        "merged": "com.drawtablet.app-debug-31:/drawable_ic_pencil.xml.flat",
+        "source": "com.drawtablet.app-main-33:/drawable/ic_pencil.xml"
+    },
+    {
+        "merged": "com.drawtablet.app-debug-31:/drawable_ic_fill.xml.flat",
+        "source": "com.drawtablet.app-main-33:/drawable/ic_fill.xml"
+    },
+    {
+        "merged": "com.drawtablet.app-debug-31:/drawable_edittext_bg.xml.flat",
+        "source": "com.drawtablet.app-main-33:/drawable/edittext_bg.xml"
+    },
+    {
+        "merged": "com.drawtablet.app-debug-31:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.drawtablet.app-main-33:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.drawtablet.app-debug-31:/drawable_ic_save.xml.flat",
+        "source": "com.drawtablet.app-main-33:/drawable/ic_save.xml"
+    },
+    {
+        "merged": "com.drawtablet.app-debug-31:/drawable_tool_selected_bg.xml.flat",
+        "source": "com.drawtablet.app-main-33:/drawable/tool_selected_bg.xml"
+    },
+    {
+        "merged": "com.drawtablet.app-debug-31:/drawable_ic_eraser.xml.flat",
+        "source": "com.drawtablet.app-main-33:/drawable/ic_eraser.xml"
+    },
+    {
+        "merged": "com.drawtablet.app-debug-31:/layout_activity_main.xml.flat",
+        "source": "com.drawtablet.app-main-33:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.drawtablet.app-debug-31:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.drawtablet.app-main-33:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.drawtablet.app-debug-31:/drawable_ic_brush.xml.flat",
+        "source": "com.drawtablet.app-main-33:/drawable/ic_brush.xml"
+    },
+    {
+        "merged": "com.drawtablet.app-debug-31:/drawable_ic_launcher.xml.flat",
+        "source": "com.drawtablet.app-main-33:/drawable/ic_launcher.xml"
+    },
+    {
+        "merged": "com.drawtablet.app-debug-31:/drawable_ic_clear.xml.flat",
+        "source": "com.drawtablet.app-main-33:/drawable/ic_clear.xml"
+    },
+    {
+        "merged": "com.drawtablet.app-debug-31:/drawable_ic_palette.xml.flat",
+        "source": "com.drawtablet.app-main-33:/drawable/ic_palette.xml"
+    }
+]
