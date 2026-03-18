@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">DrawTablet</string>
-    <style name="Theme.DrawTablet" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="colorPrimary">#1E88E5</item>
-        <item name="colorPrimaryDark">#1565C0</item>
-        <item name="colorAccent">#1E88E5</item>
-    </style>
-</resources>
