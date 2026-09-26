@@ -1,6 +1,7 @@
 package com.drawtablet
 
 import android.os.Bundle
+import android.view.MotionEvent
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
                     tvStatus.text = "✅ Connesso"
                     tvStatus.setTextColor(ContextCompat.getColor(this, android.R.color.holo_green_dark))
                     btnConnect.text = "Disconnetti"
+                    drawingView.syncLayersToPc()
                 } else {
                     tvStatus.text = "❌ Disconnesso"
                     tvStatus.setTextColor(ContextCompat.getColor(this, android.R.color.holo_red_dark))
@@ -73,6 +75,9 @@ class MainActivity : AppCompatActivity() {
             drawingView.setTool(DrawingView.Tool.FILL)
             highlightTool(it)
         }
+        findViewById<Button>(R.id.btnLayers).setOnClickListener {
+            showLayersDialog()
+        }
         findViewById<ImageButton>(R.id.btnClear).setOnClickListener {
             drawingView.clearCanvas()
             connectionManager.sendCommand("CLEAR")
@@ -86,11 +91,23 @@ class MainActivity : AppCompatActivity() {
 
         // Stroke size seekbar
         val seekBar = findViewById<SeekBar>(R.id.seekStroke)
+        val strokeValue = findViewById<TextView>(R.id.tvStrokeValue)
         seekBar.progress = 10
+        strokeValue.text = "12 px"
+        seekBar.setOnTouchListener { view, event ->
+            when (event.actionMasked) {
+                MotionEvent.ACTION_DOWN, MotionEvent.ACTION_MOVE ->
+                    view.parent.requestDisallowInterceptTouchEvent(true)
+                MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL ->
+                    view.parent.requestDisallowInterceptTouchEvent(false)
+            }
+            false
+        }
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(sb: SeekBar?, progress: Int, fromUser: Boolean) {
                 val size = (progress + 2).toFloat()
                 drawingView.setStrokeSize(size)
+                strokeValue.text = "${size.toInt()} px"
             }
             override fun onStartTrackingTouch(sb: SeekBar?) {}
             override fun onStopTrackingTouch(sb: SeekBar?) {}
@@ -98,6 +115,7 @@ class MainActivity : AppCompatActivity() {
 
         // Default tool
         highlightTool(findViewById(R.id.btnPencil))
+        drawingView.post { updateLayersButton() }
     }
 
     private var lastHighlighted: View? = null
@@ -129,6 +147,48 @@ class MainActivity : AppCompatActivity() {
                 drawingView.setColor(colors[which].second)
             }
             .show()
+    }
+
+    private fun showLayersDialog() {
+        val layers = drawingView.getLayers()
+        if (layers.isEmpty()) return
+        val active = layers.first { it.active }
+        val actions = listOf(
+            "＋ Nuovo livello",
+            if (active.visible) "Nascondi livello attivo" else "Mostra livello attivo",
+            "Pulisci livello attivo",
+            "Elimina livello attivo"
+        )
+        val layerEntries = layers.map {
+            val selected = if (it.active) "●" else "○"
+            val visibility = if (it.visible) "👁" else "—"
+            "$selected $visibility ${it.name}"
+        }
+        val items = (actions + layerEntries).toTypedArray()
+
+        android.app.AlertDialog.Builder(this)
+            .setTitle("Livelli")
+            .setItems(items) { _, which ->
+                when (which) {
+                    0 -> drawingView.addLayer()
+                    1 -> drawingView.toggleActiveLayerVisibility()
+                    2 -> drawingView.clearActiveLayer()
+                    3 -> if (!drawingView.deleteActiveLayer()) {
+                        Toast.makeText(this, "Il livello Base non può essere eliminato", Toast.LENGTH_SHORT).show()
+                    }
+                    else -> drawingView.selectLayer(layers[which - actions.size].id)
+                }
+                updateLayersButton()
+            }
+            .setNegativeButton("Chiudi", null)
+            .show()
+    }
+
+    private fun updateLayersButton() {
+        val layers = drawingView.getLayers()
+        val active = layers.firstOrNull { it.active }
+        findViewById<Button>(R.id.btnLayers).text =
+            if (active == null) "Livelli" else "Livelli: ${active.name} (${layers.size})"
     }
 
     override fun onStop() {

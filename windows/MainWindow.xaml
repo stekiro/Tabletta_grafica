@@ -50,8 +50,8 @@
         <!-- Canvas area -->
         <Border Grid.Row="1" Margin="12" Background="White"
                 BorderBrush="#546E7A" BorderThickness="1">
-            <Canvas x:Name="DrawCanvas" Background="White"
-                    ClipToBounds="True"/>
+            <Image x:Name="DrawImage" Stretch="Fill"
+                   SnapsToDevicePixels="True"/>
         </Border>
 
         <!-- Status bar -->
@@ -64,8 +64,13 @@
                 <TextBlock x:Name="InfoText"
                            Text="Avvia l'app Android e inserisci l'IP di questo PC"
                            Foreground="#607D8B" FontSize="11" VerticalAlignment="Center"/>
-                <TextBlock x:Name="IpText" Grid.Column="1"
-                           Foreground="#607D8B" FontSize="11" VerticalAlignment="Center"/>
+                <StackPanel Grid.Column="1" Orientation="Horizontal">
+                    <TextBlock x:Name="LayerText" Text="Livello: Base"
+                               Foreground="#90A4AE" FontSize="11" VerticalAlignment="Center"
+                               Margin="0,0,16,0"/>
+                    <TextBlock x:Name="IpText"
+                               Foreground="#607D8B" FontSize="11" VerticalAlignment="Center"/>
+                </StackPanel>
             </Grid>
         </Border>
     </Grid>

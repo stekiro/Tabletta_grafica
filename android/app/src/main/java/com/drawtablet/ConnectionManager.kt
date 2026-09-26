@@ -1,6 +1,7 @@
 package com.drawtablet
 
 import java.io.BufferedWriter
+import java.io.IOException
 import java.io.OutputStreamWriter
 import java.io.PrintWriter
 import java.net.InetSocketAddress
@@ -27,12 +28,17 @@ class ConnectionManager(private val onStatusChange: (Boolean) -> Unit) {
             try {
                 val newSocket = Socket()
                 newSocket.connect(InetSocketAddress(ip, port), 5000)
+                newSocket.tcpNoDelay = true
+                newSocket.keepAlive = true
                 socket = newSocket
-                writer = PrintWriter(BufferedWriter(OutputStreamWriter(newSocket.getOutputStream())), true)
+                writer = PrintWriter(
+                    BufferedWriter(OutputStreamWriter(newSocket.getOutputStream(), Charsets.UTF_8)),
+                    true
+                )
                 connected.set(true)
                 connecting.set(false)
-                onStatusChange(true)
                 startSender()
+                onStatusChange(true)
             } catch (e: Exception) {
                 e.printStackTrace()
                 connecting.set(false)
@@ -47,7 +53,11 @@ class ConnectionManager(private val onStatusChange: (Boolean) -> Unit) {
                 while (connected.get()) {
                     val msg = messageQueue.poll(100, TimeUnit.MILLISECONDS)
                     if (msg != null) {
-                        writer?.println(msg)
+                        val activeWriter = writer ?: throw IOException("Connessione non disponibile")
+                        activeWriter.println(msg)
+                        if (activeWriter.checkError()) {
+                            throw IOException("Invio al PC non riuscito")
+                        }
                     }
                 }
             } catch (e: Exception) {

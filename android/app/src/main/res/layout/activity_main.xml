@@ -103,6 +103,18 @@
                 android:padding="8dp"
                 android:layout_marginStart="4dp"/>
 
+            <Button
+                android:id="@+id/btnLayers"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Livelli: Base"
+                android:textAllCaps="false"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#546E7A"
+                android:layout_marginStart="6dp"
+                android:minWidth="150dp"
+                android:paddingHorizontal="14dp"/>
+
             <View
                 android:layout_width="1dp"
                 android:layout_height="32dp"
@@ -134,10 +146,22 @@
 
             <SeekBar
                 android:id="@+id/seekStroke"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:max="48"
+                android:layout_width="240dp"
+                android:layout_height="48dp"
+                android:max="62"
+                android:splitTrack="false"
                 android:layout_marginStart="8dp"/>
+
+            <TextView
+                android:id="@+id/tvStrokeValue"
+                android:layout_width="56dp"
+                android:layout_height="wrap_content"
+                android:text="12 px"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:gravity="center"
+                android:layout_marginStart="4dp"/>
 
             <View
                 android:layout_width="1dp"

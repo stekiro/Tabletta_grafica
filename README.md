@@ -44,7 +44,9 @@ cd DrawTablet/windows
 dotnet run
 
 # Oppure crea l'eseguibile standalone
-dotnet publish -c Release -r win-x64 --self-contained true
+dotnet publish -c Release -r win-x64 --self-contained true \
+  -p:PublishSingleFile=true \
+  -p:IncludeNativeLibrariesForSelfExtract=true
 # L'exe sarà in: bin/Release/net8.0-windows/win-x64/publish/DrawTabletPC.exe
 ```
 
@@ -122,6 +124,7 @@ cd DrawTablet/android
 | 🖌️ | **Pennello** | Tratto morbido con effetto blur |
 | 🧽 | **Gomma** | Cancella in bianco |
 | 🪣 | **Riempimento** | Flood fill area (su Android) |
+| **Livelli** | **Gestione livelli** | Crea, seleziona, mostra/nascondi, pulisce o elimina livelli sincronizzati |
 | 🎨 | **Colore** | Scegli tra 12 colori predefiniti |
 | 〰️ | **Spessore** | Slider 2px → 50px |
 | 🗑️ | **Pulisci tutto** | Cancella tutto il canvas (sync al PC) |
@@ -139,11 +142,18 @@ MOVE|nx|ny                     ← punto intermedio
 UP|nx|ny                       ← fine tratto
 CLEAR                          ← pulisci canvas
 FILL|nx|ny|color               ← riempimento
+LAYER|ADD|id|name              ← crea livello
+LAYER|SELECT|id                ← seleziona livello
+LAYER|VISIBLE|id|true|false    ← mostra/nasconde livello
+LAYER|CLEAR|id                 ← pulisce livello
+LAYER|DELETE|id                ← elimina livello
 ```
 
 - `nx`, `ny` = coordinate normalizzate (0.0 → 1.0) per adattarsi a qualsiasi dimensione schermo
 - `color` = intero ARGB
 - `tool` = PENCIL | BRUSH | ERASER | FILL
+- Android e Windows mantengono la stessa selezione e visibilità dei livelli.
+- Il riempimento sul PC usa un vero flood fill dell'area delimitata.
 
 ---
 
